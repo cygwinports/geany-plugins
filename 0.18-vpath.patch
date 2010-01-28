@@ -1,0 +1,10 @@
+--- origsrc/geany-plugins-0.18/geanyprj/tests/Makefile.am	2009-10-14 07:40:44.000000000 -0500
++++ src/geany-plugins-0.18/geanyprj/tests/Makefile.am	2010-01-28 03:27:21.407143900 -0600
+@@ -1,6 +1,6 @@
+ if UNITTESTS
+ include $(top_srcdir)/build/vars.build.mk
+-INCLUDES = $(GEANY_CFLAGS) -I../src -DUNITTESTS
++INCLUDES = $(GEANY_CFLAGS) -I$(srcdir)/../src -DUNITTESTS
+ TESTS=unittests
+ noinst_PROGRAMS=unittests
+ unittests_SOURCES = unittests.c ../src/utils.c
