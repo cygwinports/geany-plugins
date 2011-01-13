@@ -1,5 +1,5 @@
---- origsrc/geany-plugins-0.18/geanylua/geanylua.c	2009-10-27 11:23:27.000000000 -0500
-+++ src/geany-plugins-0.18/geanylua/geanylua.c	2010-01-28 03:44:46.075895500 -0600
+--- origsrc/geany-plugins-0.20/geanylua/geanylua.c	2010-06-10 11:46:27.000000000 -0500
++++ src/geany-plugins-0.20/geanylua/geanylua.c	2011-01-12 19:26:44.928374400 -0600
 @@ -42,7 +42,7 @@
  
  #include "glspi_ver.h"
@@ -9,17 +9,18 @@
  
  #define CB_COPY(field) plugin_callbacks[i].field=glspi_geany_callbacks[i].field;
  
-@@ -155,11 +155,11 @@ void plugin_init(GeanyData *data)
- 	main_locale_init(LOCALEDIR, GETTEXT_PACKAGE);
+@@ -200,12 +200,12 @@ void plugin_init(GeanyData *data)
  
  	geany_data=data;
+ 	/* first try the user config path */
 -	libname=g_build_path(G_DIR_SEPARATOR_S, data->app->configdir, "plugins", "geanylua", SUPPORT_LIB, NULL);
 +	libname=g_module_build_path(g_build_path(G_DIR_SEPARATOR_S, data->app->configdir, "plugins", "geanylua", NULL), SUPPORT_LIB);
- 	if ( !g_file_test(libname,G_FILE_TEST_IS_REGULAR) ) {
+ 	if (!load_support_lib(libname)) {
+ 		/* try the system path */
  		gchar *libdir=get_lib_dir();
  		g_free(libname);
 -		libname=g_build_path(G_DIR_SEPARATOR_S, libdir, "geany-plugins", "geanylua", SUPPORT_LIB, NULL);
 +		libname=g_module_build_path(g_build_path(G_DIR_SEPARATOR_S, libdir, "geany-plugins", "geanylua", NULL), SUPPORT_LIB);
  		g_free(libdir);
- 	}
- 	if ( !g_file_test(libname,G_FILE_TEST_IS_REGULAR) ) {
+ 		if (!load_support_lib(libname)) {
+ 			g_printerr(_("%s: Can't find support library %s!\n"), PLUGIN_NAME, libname);

@@ -5,9 +5,10 @@ HOMEPAGE="http://plugins.geany.org/"
 SRC_URI="http://plugins.geany.org/geany-plugins/${P}.tar.bz2"
 
 PATCH_URI="
-	0.18-g_module_build_path.patch
+	0.20-gmodule.patch
 	0.18-no-undefined.patch
 	0.18-vpath.patch
 "
 
 ACLOCAL_FLAGS="-I build/cache -I build"
+CYGCONF_ARGS="RST2HTML=/usr/bin/rst2html.py"
