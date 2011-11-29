@@ -6,8 +6,7 @@ SRC_URI="http://plugins.geany.org/geany-plugins/${P}.tar.bz2"
 
 PATCH_URI="
 	0.20-gmodule.patch
-	0.18-no-undefined.patch
-	0.18-vpath.patch
+	0.21.1-no-undefined.patch
 "
 
 ACLOCAL_FLAGS="-I build/cache -I build"

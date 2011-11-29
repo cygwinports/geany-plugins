@@ -1,0 +1,32 @@
+--- origsrc/geany-plugins-0.21.1/build/vars.build.mk	2011-11-29 03:09:14.913279600 -0600
++++ src/geany-plugins-0.21.1/build/vars.build.mk	2011-11-29 00:41:27.000000000 -0600
+@@ -9,7 +9,7 @@ AM_CFLAGS = \
+ 	$(GEANY_CFLAGS) \
+ 	$(GP_CFLAGS)
+ 
+-AM_LDFLAGS = -module -avoid-version
++AM_LDFLAGS = -module -avoid-version -no-undefined
+ 
+ COMMONLIBS = \
+ 	$(GEANY_LIBS) \
+--- origsrc/geany-plugins-0.21.1/debugger/src/Makefile.am	2011-10-01 23:17:30.000000000 -0500
++++ src/geany-plugins-0.21.1/debugger/src/Makefile.am	2011-11-29 02:22:56.865384400 -0600
+@@ -61,7 +61,7 @@ debugger_la_SOURCES = \
+ 	wtree.c     \
+ 	wtree.h
+ 
+-debugger_la_LIBADD = $(COMMONLIBS) -lutil
++debugger_la_LIBADD = $(COMMONLIBS) $(VTE_LIBS) -lutil
+ debugger_la_CFLAGS = $(AM_CFLAGS) $(VTE_CFLAGS) -DDBGPLUG_DATA_DIR=\"$(plugindatadir)\" -DPLUGIN_NAME=\"$(plugin)\"
+ 
+ include $(top_srcdir)/build/cppcheck.mk
+--- origsrc/geany-plugins-0.21.1/geanypg/src/Makefile.am	2011-10-01 23:17:30.000000000 -0500
++++ src/geany-plugins-0.21.1/geanypg/src/Makefile.am	2011-11-29 02:44:06.786019700 -0600
+@@ -20,6 +20,7 @@ geanypg_la_SOURCES = \
+ 
+ geanypg_la_LIBADD = \
+ 	$(COMMON_LIBS) \
++	$(GEANY_LIBS) \
+ 	$(GPGME_LIBS)
+ 
+ geanypg_la_CFLAGS = \

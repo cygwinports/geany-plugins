@@ -1,5 +1,5 @@
 category: Devel Gnome
-requires: geany libctpl2 libenchant1 libgcc1 libgdk_pixbuf2.0_0 libglib2.0_0 libgtk2.0_0 libgtkspell0 libintl8 libpango1.0_0 libsoup2.4_1 libwebkitgtk1.0_0 libxml2 lua
+requires: geany libctpl2 libdevhelp2_1 libenchant1 libgcc1 libgdk_pixbuf2.0_0 libglib2.0_0 libgpgme11 libgtk2.0_0 libgtkspell0 libintl8 libpango1.0_0 libsoup2.4_1 libvte9 libwebkitgtk1.0_0 libxml2 lua
 sdesc: "Collection of plugins for Geany"
 ldesc: "The Geany-plugins project is a collection of different plugins 
 for Geany, the lightweight IDE."
