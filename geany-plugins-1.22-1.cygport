@@ -1,6 +1,9 @@
 inherit gnome2
 
-DESCRIPTION="Collection of plugins for Geany IDE"
+CATEGORY="Editors"
+SUMMARY="Collection of plugins for Geany IDE"
+DESCRIPTION="The Geany-plugins project is a collection of different plugins
+for Geany, the lightweight IDE."
 HOMEPAGE="http://plugins.geany.org/"
 SRC_URI="http://plugins.geany.org/geany-plugins/${P}.tar.bz2"
 
@@ -9,5 +12,9 @@ PATCH_URI="
 	0.21.1-no-undefined.patch
 "
 
+REQUIRES="geany"
+
 ACLOCAL_FLAGS="-I build/cache -I build"
 CYGCONF_ARGS="RST2HTML=/usr/bin/rst2html.py"
+
+KEEP_LA_FILES="none"
