@@ -19,3 +19,14 @@
  	$(GPGME_LIBS)
  
  geanypg_la_CFLAGS = \
+--- origsrc/geany-plugins-1.24/geanypy/src/Makefile.am	2014-04-12 09:28:39.000000000 -0500
++++ src/geany-plugins-1.24/geanypy/src/Makefile.am	2014-04-24 11:36:25.632421700 -0500
+@@ -3,7 +3,7 @@ include $(top_srcdir)/build/vars.build.m
+ geanyplugin_LTLIBRARIES		=	geanypy.la
+ geanyplugindir				=	$(libdir)/geany
+ 
+-geanypy_la_LDFLAGS			=	-module -avoid-version -Wl,--export-dynamic
++geanypy_la_LDFLAGS			=	-module -avoid-version -no-undefined -Wl,--export-dynamic
+ geanypy_la_CPPFLAGS			=	@GEANY_CFLAGS@ @PYGTK_CFLAGS@ @PYTHON_CPPFLAGS@ \
+ 								-DGEANYPY_PYTHON_DIR="\"$(libdir)/geany/geanypy\"" \
+ 								-DGEANYPY_PLUGIN_DIR="\"$(datadir)/geany/geanypy/plugins\"" \
