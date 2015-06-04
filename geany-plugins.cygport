@@ -2,7 +2,7 @@ inherit gnome2 python
 
 NAME="geany-plugins"
 VERSION=1.24
-RELEASE=1
+RELEASE=2
 CATEGORY="Editors"
 SUMMARY="Collection of plugins for Geany IDE"
 DESCRIPTION="The Geany-plugins project is a collection of different plugins
@@ -12,11 +12,15 @@ HOMEPAGE="http://plugins.geany.org/"
 SRC_URI="http://plugins.geany.org/geany-plugins/${NAME}-${VERSION}.tar.bz2"
 
 PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/geany-plugins.git/plain/geany-plugins-1.23-lua-5.2.patch
 	0.20-gmodule.patch
 	0.21.1-no-undefined.patch
 "
 
 ACLOCAL_FLAGS="-I build/cache -I build"
+CPPFLAGS+=" -DLUA_COMPAT_ALL"
 CYGCONF_ARGS="RST2HTML=/usr/bin/rst2html.py"
+
+DIFF_EXCLUDES="ax_python_devel.m4"
 
 KEEP_LA_FILES="none"
