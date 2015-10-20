@@ -1,26 +1,64 @@
 inherit gnome2 python
 
 NAME="geany-plugins"
-VERSION=1.24
-RELEASE=2
+VERSION=1.25
+RELEASE=1
 CATEGORY="Editors"
 SUMMARY="Collection of plugins for Geany IDE"
 DESCRIPTION="The Geany-plugins project is a collection of different plugins
 for Geany, the lightweight IDE."
-REQUIRES="geany"
 HOMEPAGE="http://plugins.geany.org/"
 SRC_URI="http://plugins.geany.org/geany-plugins/${NAME}-${VERSION}.tar.bz2"
-
 PATCH_URI="
-	http://pkgs.fedoraproject.org/cgit/geany-plugins.git/plain/geany-plugins-1.23-lua-5.2.patch
 	0.20-gmodule.patch
 	0.21.1-no-undefined.patch
+	1.25-i18n-vpath.patch
+	1.25-pretty-printer-docs.patch
 "
 
 ACLOCAL_FLAGS="-I build/cache -I build"
-CPPFLAGS+=" -DLUA_COMPAT_ALL"
 CYGCONF_ARGS="RST2HTML=/usr/bin/rst2html.py"
+
+PKG_NAMES="${NAME}-common"
+geany_plugins_CATEGORY="_obsolete"
+geany_plugins_common_CONTENTS="usr/share/locale/"
+for p in addons autoclose automark codenav commander debugger defineformat \
+	devhelp geanyctags geanydoc geanyextrasel geanygendoc geanyinsertnum \
+	geanylatex geanylipsum geanylua geanymacro geanyminiscript \
+	geanynumberedbookmarks geanypg geanyprj geanypy geanysendmail geanyvc \
+	geniuspaste git-changebar markdown multiterm overview pairtaghighlighter \
+	pohelper pretty-printer projectorganizer scope shiftcolumn spellcheck \
+	tableconvert treebrowser updatechecker webhelper xmlsnippets
+do
+	PKG_NAMES+=" ${NAME}-${p}"
+	declare geany_plugins_${p//-/_}_SUMMARY="${p} plugin for Geany text editor"
+	declare geany_plugins_${p//-/_}_REQUIRES="${NAME}-common"
+	declare geany_plugins_${p//-/_}_CONTENTS="usr/lib/geany/$p.dll usr/share/doc/${NAME}/$p/"
+done
+geany_plugins_debugger_REQUIRES="gdb"
+geany_plugins_debugger_CONTENTS+=" usr/share/${NAME}/debugger/"
+geany_plugins_devhelp_CONTENTS+=" usr/share/${NAME}/devhelp/"
+geany_plugins_geanyctags_REQUIRES="ctags"
+geany_plugins_geanygendoc_REQUIRES="python-docutils"
+geany_plugins_geanygendoc_CONTENTS+=" usr/share/${NAME}/geanygendoc/"
+geany_plugins_geanylatex_REQUIRES="texlive-collection-latex"
+geany_plugins_geanylua_CONTENTS+="
+	usr/lib/${NAME}/geanylua/
+	usr/share/${NAME}/geanylua/
+"
+geany_plugins_geanypy_CONTENTS+=" usr/lib/geany/geanypy/ usr/share/geany/geanypy/"
+geany_plugins_git_changebar_CONTENTS+=" usr/share/${NAME}/git-changebar/"
+geany_plugins_overview_CONTENTS+=" usr/share/${NAME}/overview/"
+geany_plugins_pohelper_CONTENTS+=" usr/share/${NAME}/pohelper/"
+geany_plugins_projectorganizer_CONTENTS+="
+	usr/share/icons/hicolor/*/apps/prjorg-*
+	etc/postinstall/${NAME}.sh
+"
+geany_plugins_scope_REQUIRES="gdb"
+geany_plugins_scope_CONTENTS+=" usr/share/${NAME}/scope/"
 
 DIFF_EXCLUDES="ax_python_devel.m4"
 
 KEEP_LA_FILES="none"
+# each plugin installs its own docs
+RESTRICT="postinst-doc"
