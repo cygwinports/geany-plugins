@@ -2,7 +2,7 @@ inherit gnome2 python
 
 NAME="geany-plugins"
 VERSION=1.25
-RELEASE=1
+RELEASE=2
 CATEGORY="Editors"
 SUMMARY="Collection of plugins for Geany IDE"
 DESCRIPTION="The Geany-plugins project is a collection of different plugins
@@ -10,10 +10,12 @@ for Geany, the lightweight IDE."
 HOMEPAGE="http://plugins.geany.org/"
 SRC_URI="http://plugins.geany.org/geany-plugins/${NAME}-${VERSION}.tar.bz2"
 PATCH_URI="
+	https://github.com/geany/geany-plugins/commit/37aa25a.diff#/geany-plugins-1.25-libgit2_23.patch
 	0.20-gmodule.patch
 	0.21.1-no-undefined.patch
 	1.25-i18n-vpath.patch
 	1.25-pretty-printer-docs.patch
+	1.25-automake-archive.patch
 "
 
 ACLOCAL_FLAGS="-I build/cache -I build"

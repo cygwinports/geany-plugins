@@ -1,0 +1,11 @@
+--- origsrc/geany-plugins-1.25/geanypy/src/Makefile.am	2015-11-16 12:53:00.048152000 -0600
++++ src/geany-plugins-1.25/geanypy/src/Makefile.am	2015-11-16 13:28:13.421016300 -0600
+@@ -8,7 +8,7 @@ geanypy_la_CPPFLAGS			=	@GEANY_CFLAGS@ @
+ 								-DGEANYPY_PYTHON_DIR="\"$(libdir)/geany/geanypy\"" \
+ 								-DGEANYPY_PLUGIN_DIR="\"$(datadir)/geany/geanypy/plugins\""
+ geanypy_la_CFLAGS			=	@GEANYPY_CFLAGS@ @GMODULE_CFLAGS@
+-geanypy_la_LIBADD			=	@GEANY_LIBS@ @PYGTK_LIBS@ @PYTHON_LDFLAGS@ \
++geanypy_la_LIBADD			=	@GEANY_LIBS@ @PYGTK_LIBS@ @PYTHON_LIBS@ \
+ 								@PYTHON_EXTRA_LIBS@ @PYTHON_EXTRA_LDFLAGS@ \
+ 								@GMODULE_LIBS@
+ geanypy_la_SOURCES			=	geanypy-app.c \
