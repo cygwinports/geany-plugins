@@ -1,4 +1,3 @@
-diff -urN -x Makefile.in geany-plugins-1.25-1.x86_64/origsrc/geany-plugins-1.25/pretty-printer/COPYING geany-plugins-1.25-1.x86_64/src/geany-plugins-1.25/pretty-printer/COPYING
 --- geany-plugins-1.25-1.x86_64/origsrc/geany-plugins-1.25/pretty-printer/COPYING	1969-12-31 18:00:00.000000000 -0600
 +++ geany-plugins-1.25-1.x86_64/src/geany-plugins-1.25/pretty-printer/COPYING	2015-10-20 14:58:55.825883600 -0500
 @@ -0,0 +1,15 @@
@@ -17,7 +16,6 @@ diff -urN -x Makefile.in geany-plugins-1.25-1.x86_64/origsrc/geany-plugins-1.25/
 +You should have received a copy of the GNU General Public License along
 +with this program; if not, write to the Free Software Foundation, Inc.,
 +51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-diff -urN -x Makefile.in geany-plugins-1.25-1.x86_64/origsrc/geany-plugins-1.25/pretty-printer/Makefile.am geany-plugins-1.25-1.x86_64/src/geany-plugins-1.25/pretty-printer/Makefile.am
 --- geany-plugins-1.25-1.x86_64/origsrc/geany-plugins-1.25/pretty-printer/Makefile.am	2014-10-21 17:39:56.000000000 -0500
 +++ geany-plugins-1.25-1.x86_64/src/geany-plugins-1.25/pretty-printer/Makefile.am	2015-10-20 16:07:18.279829100 -0500
 @@ -1,4 +1,6 @@
@@ -26,5 +24,4 @@ diff -urN -x Makefile.in geany-plugins-1.25-1.x86_64/origsrc/geany-plugins-1.25/
 +dist_plugindoc_DATA = COPYING
  
  SUBDIRS = src
--plugin = codenav
-+plugin = pretty-printer
+ plugin = pretty-printer
