@@ -1,7 +1,7 @@
 inherit gnome2 python
 
 NAME="geany-plugins"
-VERSION=1.28
+VERSION=1.30
 RELEASE=1
 CATEGORY="Editors"
 SUMMARY="Collection of plugins for Geany IDE"
@@ -12,7 +12,7 @@ SRC_URI="http://plugins.geany.org/geany-plugins/${NAME}-${VERSION}.tar.bz2"
 PATCH_URI="
 	0.20-gmodule.patch
 	0.21.1-no-undefined.patch
-	1.25-i18n-vpath.patch
+	1.30-i18n-vpath.patch
 	1.25-pretty-printer-docs.patch
 "
 
@@ -24,7 +24,7 @@ geany_plugins_CATEGORY="_obsolete"
 geany_plugins_common_CONTENTS="usr/share/locale/"
 for p in addons autoclose automark codenav commander debugger defineformat \
 	devhelp geanyctags geanydoc geanyextrasel geanygendoc geanyinsertnum \
-	geanylatex geanylipsum geanylua geanymacro geanyminiscript \
+	geanylatex lipsum geanylua geanymacro geanyminiscript \
 	geanynumberedbookmarks geanypg geanyprj geanypy geanyvc geniuspaste \
 	git-changebar lineoperations markdown multiterm overview pairtaghighlighter \
 	pohelper pretty-printer projectorganizer scope sendmail shiftcolumn \
@@ -49,6 +49,7 @@ geany_plugins_geanylua_CONTENTS+="
 geany_plugins_geanypy_CONTENTS+=" usr/lib/geany/*.py usr/lib/geany/geanypy/"
 geany_plugins_geniuspaste_CONTENTS+=" usr/share/${NAME}/geniuspaste/"
 geany_plugins_git_changebar_CONTENTS+=" usr/share/${NAME}/git-changebar/"
+geany_plugins_lipsum_OBSOLETES="geany-plugins-geanylipsum"
 geany_plugins_overview_CONTENTS+=" usr/share/${NAME}/overview/"
 geany_plugins_pohelper_CONTENTS+=" usr/share/${NAME}/pohelper/"
 geany_plugins_projectorganizer_CONTENTS+="

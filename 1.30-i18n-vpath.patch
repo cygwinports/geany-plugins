@@ -1,0 +1,11 @@
+--- origsrc/geany-plugins-1.30/build/i18n.m4	2017-03-05 09:38:24.000000000 -0600
++++ src/geany-plugins-1.30/build/i18n.m4	2017-03-17 01:13:06.628219900 -0500
+@@ -1,7 +1,7 @@
+ AC_DEFUN([GP_I18N],
+ [
+     if test -z "$conf_dir" ; then
+-        conf_dir="."
++        conf_dir="$srcdir"
+     fi
+     ALL_LINGUAS=`cd "$conf_dir/po" 2>/dev/null && ls *.po 2>/dev/null | $AWK 'BEGIN { FS="."; ORS=" " } { print $[1] }'`
+     GETTEXT_PACKAGE=geany-plugins
