@@ -1,0 +1,12 @@
+--- origsrc/geany-plugins-1.31/pretty-printer/ChangeLog	1969-12-31 18:00:00.000000000 -0600
++++ src/geany-plugins-1.31/pretty-printer/ChangeLog	2017-09-05 22:24:32.930050400 -0500
+@@ -0,0 +1 @@
++This is a placeholder.
+--- origsrc/geany-plugins-1.31/pretty-printer/Makefile.am	2017-03-05 09:38:24.000000000 -0600
++++ src/geany-plugins-1.31/pretty-printer/Makefile.am	2017-09-05 22:23:14.356815300 -0500
+@@ -1,4 +1,4 @@
+-# include $(top_srcdir)/build/vars.auxfiles.mk
++include $(top_srcdir)/build/vars.auxfiles.mk
+ 
+ SUBDIRS = src
+ plugin = pretty-printer

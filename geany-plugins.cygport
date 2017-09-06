@@ -1,7 +1,7 @@
 inherit gnome2 python
 
 NAME="geany-plugins"
-VERSION=1.30
+VERSION=1.31
 RELEASE=1
 CATEGORY="Editors"
 SUMMARY="Collection of plugins for Geany IDE"
@@ -13,7 +13,7 @@ PATCH_URI="
 	0.20-gmodule.patch
 	0.21.1-no-undefined.patch
 	1.30-i18n-vpath.patch
-	1.25-pretty-printer-docs.patch
+	1.31-pretty-printer-docs.patch
 "
 
 ACLOCAL_FLAGS="-I build/cache -I build"
@@ -26,7 +26,7 @@ for p in addons autoclose automark codenav commander debugger defineformat \
 	devhelp geanyctags geanydoc geanyextrasel geanygendoc geanyinsertnum \
 	geanylatex lipsum geanylua geanymacro geanyminiscript \
 	geanynumberedbookmarks geanypg geanyprj geanypy geanyvc geniuspaste \
-	git-changebar lineoperations markdown multiterm overview pairtaghighlighter \
+	git-changebar keyrecord lineoperations markdown multiterm overview pairtaghighlighter \
 	pohelper pretty-printer projectorganizer scope sendmail shiftcolumn \
 	spellcheck tableconvert treebrowser updatechecker webhelper xmlsnippets
 do
@@ -62,6 +62,5 @@ geany_plugins_sendmail_OBSOLETES="${NAME}-geanysendmail"
 
 DIFF_EXCLUDES="ax_python_devel.m4"
 
-KEEP_LA_FILES="none"
 # each plugin installs its own docs
 RESTRICT="postinst-doc"
